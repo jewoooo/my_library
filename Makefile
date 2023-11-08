@@ -1,5 +1,5 @@
 NAME = libft.a
-CC = cc
+CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar
 ARFLAGS = rcs
@@ -54,17 +54,25 @@ OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all : $(NAME)
 
+$(NAME) : make_mandatory
+
+bonus : make_bonus
+
+make_mandatory : $(OBJS)
+	$(AR) $(ARFLAGS) $(NAME) $^
+	touch $@
+
+make_bonus : $(OBJS) $(OBJS_BONUS)
+	$(AR) $(ARFLAGS) $(NAME) $^
+	touch $@
+
 %.o : %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(NAME) : $(OBJS)
-	$(AR) $(ARFLAGS) $@ $^
-
-bonus : $(OBJS) $(OBJS_BONUS)
-	$(AR) $(ARFLAGS) $(NAME) $^
-
 clean :
 	$(RM) $(OBJS) $(OBJS_BONUS)
+	$(RM) make_mandatory
+	$(RM) make_bonus
 
 fclean : clean
 	$(RM) $(NAME)
