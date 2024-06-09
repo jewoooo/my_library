@@ -6,7 +6,7 @@
 /*   By: jewlee <jewlee@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 17:08:54 by jewlee            #+#    #+#             */
-/*   Updated: 2023/10/09 13:02:22 by jewlee           ###   ########.fr       */
+/*   Updated: 2024/06/09 15:50:48 by jewlee           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,13 @@ void	*ft_memset(void *b, int c, size_t len)
 }
 
 /*
-#include <stdio.h>
+memset - fill a byte string with a byte value
+
 #include <string.h>
+void	*memset(void *b, int c, size_t len);
 
-int	main(void)
-{
-	char	str1[] = "Hello World";
-	char	str2[] = "Hello World";
+Description : The memset func writes len bytes of value c
+(converted to an unsigned char) to the string b
 
-	printf("%s\n", memset(str1, 'h', 5));
-	printf("%s\n", ft_memset(str2, 'h', 5));
-	return (0);
-}
+Return : The memset func returns its first argument.
 */
